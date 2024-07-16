@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\OwnerController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,7 @@ Route::prefix('admin')->as('admin.')->middleware('auth')->group(function () {
         Route::get('blog/create', [PostController::class, 'create'])->middleware('super_admin')->name('blog.create');
         Route::resource('user', UserController::class);
         Route::resource('owner', OwnerController::class);
+        Route::resource('type', TypeController::class);
     });
 
     Route::get('/', [HomeController::class, 'index'])->name('home');
