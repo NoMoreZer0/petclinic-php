@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\OwnerController;
+use App\Http\Controllers\Admin\PetController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\UserController;
@@ -27,6 +28,7 @@ Route::prefix('admin')->as('admin.')->middleware('auth')->group(function () {
         Route::resource('user', UserController::class);
         Route::resource('owner', OwnerController::class);
         Route::resource('type', TypeController::class);
+        Route::resource('pet', PetController::class);
     });
 
     Route::get('/', [HomeController::class, 'index'])->name('home');

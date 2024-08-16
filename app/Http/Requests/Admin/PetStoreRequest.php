@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests\Admin;
 
-use App\Rules\HexColor;
 use Illuminate\Foundation\Http\FormRequest;
 
-class TypeStoreRequest extends FormRequest
+class PetStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +22,10 @@ class TypeStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'string|required|unique:types',
-            'color' => ['required', new HexColor],
+            'name' => 'required|max:255',
+            'birth_date' => 'required',
+            'type' => 'required',
+            'owner' => 'required'
         ];
     }
 }

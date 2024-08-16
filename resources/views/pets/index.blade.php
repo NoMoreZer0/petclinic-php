@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Owners')
+@section('title', 'Pet types')
 
 @section('content_header')
-    <h1> Owners </h1>
+    <h1> Pets </h1>
 @stop
 
 @section('content')
@@ -17,7 +17,7 @@
                         </div>
                     @endif
                     <div class="d-flex justify-content-end">
-                        <a href="{{route('admin.owner.create')}}" class="btn btn-primary"> Create </a>
+                        <a href="{{route('admin.pet.create')}}" class="btn btn-primary"> Create </a>
                     </div>
                 </div>
                 <div class="card-body p-0">
@@ -28,54 +28,36 @@
                                 ID
                             </th>
                             <th>
-                                First name
+                                {{__('Name')}}
                             </th>
                             <th>
-                                Last name
+                                {{__('Birthdate')}}
                             </th>
                             <th>
-                                Address
+                                {{__('Type')}}
                             </th>
                             <th>
-                                City
-                            </th>
-                            <th>
-                                Email
-                            </th>
-                            <th>
-                                Phone number
-                            </th>
-                            <th>
-
+                                {{__('Owner')}}
                             </th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($owners as $owner)
+                        @foreach($pets as $pet)
                             <tr>
                                 <td>
-                                    {{$owner->id}}
+                                    {{$pet->id}}
                                 </td>
                                 <td>
-                                    {{$owner->first_name}}
+                                    {{$pet->name}}
                                 </td>
                                 <td>
-                                    {{$owner->last_name}}
+                                    {{$pet->birth_date}}
                                 </td>
                                 <td>
-                                    {{$owner->address}}
+                                    {{$pet->type->name}}
                                 </td>
                                 <td>
-                                    {{$owner->city}}
-                                </td>
-                                <td>
-                                    {{$owner->email}}
-                                </td>
-                                <td>
-                                    {{$owner->phone_number}}
-                                </td>
-                                <td>
-                                    @include('includes.delete_button', ['route' => 'admin.owner.destroy', 'item_id' => $owner->id])
+                                    {{$pet->owner->first_name}} {{$pet->owner->last_name}}
                                 </td>
                             </tr>
                         @endforeach
@@ -89,7 +71,6 @@
 
 @section('css')
     {{-- Add here extra stylesheets --}}
-    {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
 @stop
 
 @section('js')

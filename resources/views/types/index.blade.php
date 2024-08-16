@@ -33,6 +33,9 @@
                             <th>
                                 {{__('color')}}
                             </th>
+                            <th>
+
+                            </th>
                         </tr>
                         </thead>
                         <tbody>
@@ -46,6 +49,9 @@
                                 </td>
                                 <td>
                                     {{$type->color}}
+                                </td>
+                                <td>
+                                    @include('includes.delete_button', ['route' => 'admin.type.destroy', 'item_id' => $type->id])
                                 </td>
                             </tr>
                         @endforeach

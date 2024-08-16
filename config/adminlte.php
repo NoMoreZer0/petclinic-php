@@ -22,6 +22,12 @@ $items = [
             'can' => 'is-super-admin'
         ],
         [
+            'text' => 'Pets',
+            'url' => 'admin/pet',
+            'icon' => '',
+            'can' => 'is-super-admin'
+        ],
+        [
             'text' => 'Types',
             'url' => 'admin/type',
             'icon' => '',

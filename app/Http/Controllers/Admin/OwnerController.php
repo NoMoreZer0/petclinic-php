@@ -62,8 +62,9 @@ class OwnerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Owner $owner)
     {
-        //
+        $owner->delete();
+        return redirect()->route('admin.owner.index')->with('success', 'Owner deleted successfully.');
     }
 }
