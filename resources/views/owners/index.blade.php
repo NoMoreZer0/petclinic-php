@@ -75,6 +75,7 @@
                                     {{$owner->phone_number}}
                                 </td>
                                 <td>
+                                    @include('includes.edit_button', ['route' => 'admin.owner.edit', 'item_id' => $owner->id])
                                     @include('includes.delete_button', ['route' => 'admin.owner.destroy', 'item_id' => $owner->id])
                                 </td>
                             </tr>
